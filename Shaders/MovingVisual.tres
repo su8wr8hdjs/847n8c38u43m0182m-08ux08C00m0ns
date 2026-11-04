@@ -1,0 +1,46 @@
+[gd_resource type="VisualShader" format=3 uid="uid://b8sic5up2h4al"]
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_kts70"]
+parameter_name = "BaseMap"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_dn2de"]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_b3hsl"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_e0sbj"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_oickx"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_708m2"]
+
+[sub_resource type="VisualShaderNodeVec2Parameter" id="VisualShaderNodeVec2Parameter_xfkw7"]
+parameter_name = "Speed"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_1ar0c"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[resource]
+nodes/vertex/3/node = SubResource("VisualShaderNodeInput_oickx")
+nodes/vertex/3/position = Vector2(-420, 340)
+nodes/vertex/4/node = SubResource("VisualShaderNodeUVFunc_708m2")
+nodes/vertex/4/position = Vector2(80, 140)
+nodes/vertex/5/node = SubResource("VisualShaderNodeVec2Parameter_xfkw7")
+nodes/vertex/5/position = Vector2(-400, 180)
+nodes/vertex/7/node = SubResource("VisualShaderNodeVectorOp_1ar0c")
+nodes/vertex/7/position = Vector2(-60, 160)
+nodes/vertex/connections = PackedInt32Array(4, 0, 0, 4, 5, 0, 7, 0, 3, 0, 7, 1, 7, 0, 4, 2)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_kts70")
+nodes/fragment/2/position = Vector2(-500, 320)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_dn2de")
+nodes/fragment/3/position = Vector2(-180, 140)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_b3hsl")
+nodes/fragment/4/position = Vector2(60, 60)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorCompose_e0sbj")
+nodes/fragment/5/position = Vector2(240, 60)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 4, 0, 4, 0, 5, 0, 5, 0, 0, 0, 4, 3, 0, 1, 4, 1, 5, 1, 4, 2, 5, 2)
